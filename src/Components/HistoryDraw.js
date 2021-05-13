@@ -1,9 +1,13 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import {getDraw} from "../redux/actions"
 import { connect } from "react-redux";
 
+
+
 const HistoryDraw = (props) => {
-const {drawHistory, setDrawHistory, getFieldFromHistory,getDrawFromServer} = props;
+useEffect(()=> {props.getDraw()}, [])
+
+  const {drawHistory, setDrawHistory, getFieldFromHistory,getDrawFromServer} = props;
 const [historyInp, setHistoryInp] = useState("");
 
 
@@ -54,11 +58,7 @@ const mapDispatchToProps = (dispatch) => ({
       payload: {index},
 
     }),
-    getDrawFromServer: () =>
-    dispatch({
-      type: "GET_DRAW_FROM_SERVER",
-    
-    }),
+getDraw: ()=> dispatch(getDraw())
 
 });
 

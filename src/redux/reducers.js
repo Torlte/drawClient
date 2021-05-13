@@ -59,14 +59,7 @@ const fieldDraw = (state = initialState, action) => {
       return { ...state,...state.drawHistory[action.payload.index]}
 
       case "GET_DRAW_FROM_SERVER":
-let hisoryArr = []
-        axios.get('http://localhost:5000/draw')
-        .then(function (res) {
-          console.log(res.data)
-hisoryArr = res.data
-          return { ...state, drawHistory: res.data }
-        })
-        return { ...state , drawHistory: hisoryArr }
+        return { ...state , drawHistory: action.payload }
           
 
     
