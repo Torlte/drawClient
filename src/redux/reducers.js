@@ -48,7 +48,7 @@ const fieldDraw = (state = initialState, action) => {
       fieldSize: state.fieldSize,
       username:"Roman"
     }
-    axios.post('http://localhost:5000/draw', newDraw)
+    axios.post('https://draw-pixel-server.herokuapp.com/draw', newDraw)
     .then(function (res) {
       console.log(res);
     })
